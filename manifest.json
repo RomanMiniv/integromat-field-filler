@@ -1,0 +1,33 @@
+{
+    "name": "Integromat scenario filler",
+    "description": "Random filling of module fields in the scenario.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "to-fill": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Y"
+            },
+            "description": "To fill"
+        },
+        "to-clean": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+U"
+            },
+            "description": "To clean"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.integromat.com/scenario/*/edit"
+            ],
+            "js": [
+                "src/contentScript.js"
+            ]
+        }
+    ]
+}
